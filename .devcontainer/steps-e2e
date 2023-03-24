@@ -1,0 +1,14 @@
+Manual - docker hub login,
+Manual - Set env var
+x - minikube start --cpus='6' --memory='8G' --> Can't because the Codespace is 2 core
+minikube start
+
+kubectl apply -f ./third_party/cert-manager-latest/cert-manager.yaml
+kubectl wait --for=condition=Established --all crd
+kubectl wait --for=condition=Available -n cert-manager --all deployments
+
+KO_DOCKER_REPO=ko.local
+
+ko apply --selector knative.dev/crd-install=true -Rf config/core/
+kubectl wait --for=condition=Established --all crd
+ko apply -Rf config/core/ --> Failing on 2 core machine 

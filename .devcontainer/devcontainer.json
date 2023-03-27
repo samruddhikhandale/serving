@@ -1,5 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
-	"name": "Knative",
-    "image": "gcr.io/knative-tests/test-infra/prow-tests:latest"
+    "name": "Knative",
+    "image": "gcr.io/knative-tests/test-infra/prow-tests:latest",
+
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/go:1": {}
+    }
 }

@@ -9,5 +9,5 @@
         "ghcr.io/devcontainers/features/go:1": {}
     },
 
-    "onCreateCommand": "bash .devcontainer/create-clusters-and-install-serving.sh"
+    "postCreateCommand": "bash .devcontainer/create-clusters-and-install-serving.sh > /tmp/post-create-logs"
 }

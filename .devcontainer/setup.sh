@@ -3,7 +3,7 @@ set -eux
 
 export KO_DOCKER_REPO=kind.local
 
-echo "Setting up registry..."
+echo "Setting up local container registry..."
 reg_name='registry.local'
 reg_port='5001'
 if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true)" != 'true' ]; then

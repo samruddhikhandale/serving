@@ -1,7 +1,0 @@
-👋 Welcome to "Knative Serving" in GitHub Codespaces!
-
-🛠️  Your environment is fully setup with all the required software.
-
-🚀 The "postCreateCommand" creates a local container registry, a kind cluster and deploys Knative Serving and Knative Ingress.
-
-🔍 To explore the setup logs, use the "Codespaces: View Creation logs" command from the Command Palette (Cmd/Ctrl + Shift + P or F1).

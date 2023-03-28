@@ -9,9 +9,6 @@
         "ghcr.io/devcontainers/features/go:1": {}
     },
 
-    // Copies over the welcome message
-    "onCreateCommand": "cp .devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
-    
     // Creates a local container registry, a Kind cluster and deploys Knative Serving and Knative Ingress.
     "postCreateCommand": "bash .devcontainer/setup.sh",
 

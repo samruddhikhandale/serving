@@ -1,8 +1,10 @@
 #!/bin/sh
 set -eux
 
-# create registry container unless it already exists
-reg_name='kind-registry'
+export KO_DOCKER_REPO=kind.local
+
+echo "Setting up registry..."
+reg_name='registry.local'
 reg_port='5001'
 if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true)" != 'true' ]; then
   docker run \
@@ -10,8 +12,9 @@ if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true
     registry:2
 fi
 
-# create a cluster with the local registry enabled in containerd
+echo "Creating KinD cluster..."
 cat <<EOF | kind create cluster --config=-
+
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 containerdConfigPatches:
@@ -20,7 +23,7 @@ containerdConfigPatches:
     endpoint = ["http://${reg_name}:5000"]
 EOF
 
-# connect the registry to the cluster network if not already connected
+echo "Connecting registry to KinD cluster..."
 if [ "$(docker inspect -f='{{json .NetworkSettings.Networks.kind}}' "${reg_name}")" = 'null' ]; then
   docker network connect "kind" "${reg_name}"
 fi
@@ -39,8 +42,6 @@ data:
     help: "https://kind.sigs.k8s.io/docs/user/local-registry/"
 EOF
 
-export KO_DOCKER_REPO=kind.local
-
 echo "Deploying cert-manager..."
 kubectl apply -f ./third_party/cert-manager-latest/cert-manager.yaml
 kubectl wait --for=condition=Established --all crd
@@ -57,5 +58,3 @@ kubectl patch configmap/config-network \
   -n knative-serving \
   --type merge \
   -p '{"data":{"ingress.class":"kourier.ingress.networking.knative.dev"}}'
-
-

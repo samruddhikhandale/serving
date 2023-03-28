@@ -12,11 +12,12 @@
     // Copies over the welcome message
     "onCreateCommand": "cp .devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
     
-    // Creates a local container registry, a kind cluster and deploys Knative Serving and Knative Ingress.
+    // Creates a local container registry, a Kind cluster and deploys Knative Serving and Knative Ingress.
     "postCreateCommand": "bash .devcontainer/setup.sh",
 
     "containerEnv": {
-        "KO_DOCKER_REPO": "kind.local"
+        "KO_DOCKER_REPO": "kind.local",
+        "KO_FLAGS": "--platform=linux/amd64"
     },
 
     "forwardPorts": [

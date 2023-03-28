@@ -1,0 +1,581 @@
+=== RUN   TestActivatorOverload
+=== PAUSE TestActivatorOverload
+=== RUN   TestAutoscaleUpDownUp
+=== PAUSE TestAutoscaleUpDownUp
+=== RUN   TestAutoscaleUpCountPods
+=== PAUSE TestAutoscaleUpCountPods
+=== RUN   TestRPSBasedAutoscaleUpCountPods
+=== PAUSE TestRPSBasedAutoscaleUpCountPods
+=== RUN   TestAutoscaleSustaining
+=== RUN   TestAutoscaleSustaining/aggregation-linear
+    autoscale_test.go:131: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service autoscale-sustaining-aggregation-linear-cdvplqtn
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:autoscale-sustaining-aggregation-linear-cdvplqtn,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/metric-aggregation-algorithm: linear,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    autoscale_test.go:131: Failed to create initial Service: autoscale-sustaining-aggregation-linear-cdvplqtn: namespaces "serving-tests" not found
+=== RUN   TestAutoscaleSustaining/aggregation-weighted-exponential
+    autoscale_test.go:131: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service autoscale-sustaining-aggregation-weighted-wpmxpczr
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:autoscale-sustaining-aggregation-weighted-wpmxpczr,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/metric-aggregation-algorithm: weighted-exponential,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    autoscale_test.go:131: Failed to create initial Service: autoscale-sustaining-aggregation-weighted-wpmxpczr: namespaces "serving-tests" not found
+--- FAIL: TestAutoscaleSustaining (0.68s)
+    --- FAIL: TestAutoscaleSustaining/aggregation-linear (0.49s)
+    --- FAIL: TestAutoscaleSustaining/aggregation-weighted-exponential (0.19s)
+=== RUN   TestTargetBurstCapacity
+=== PAUSE TestTargetBurstCapacity
+=== RUN   TestTargetBurstCapacityMinusOne
+=== PAUSE TestTargetBurstCapacityMinusOne
+=== RUN   TestTargetBurstCapacityZero
+=== PAUSE TestTargetBurstCapacityZero
+=== RUN   TestFastScaleToZero
+=== PAUSE TestFastScaleToZero
+=== RUN   TestActivationScale
+=== PAUSE TestActivationScale
+=== RUN   TestDestroyPodInflight
+=== PAUSE TestDestroyPodInflight
+=== RUN   TestDestroyPodTimely
+    service.go:150: Creating a new Service service destroy-pod-timely-whigmsnn
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:destroy-pod-timely-whigmsnn,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    destroypod_test.go:174: Failed to create a service: namespaces "serving-tests" not found
+--- FAIL: TestDestroyPodTimely (0.18s)
+=== RUN   TestDestroyPodWithRequests
+    service.go:150: Creating a new Service service destroy-pod-with-requests-kduleile
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:destroy-pod-with-requests-kduleile,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    destroypod_test.go:258: Failed to create a service: namespaces "serving-tests" not found
+--- FAIL: TestDestroyPodWithRequests (0.17s)
+=== RUN   TestEgressTraffic
+=== PAUSE TestEgressTraffic
+=== RUN   TestEmptyDir
+=== PAUSE TestEmptyDir
+=== RUN   TestGRPCUnaryPing
+=== PAUSE TestGRPCUnaryPing
+=== RUN   TestGRPCStreamingPing
+=== PAUSE TestGRPCStreamingPing
+=== RUN   TestGRPCUnaryPingViaActivator
+=== PAUSE TestGRPCUnaryPingViaActivator
+=== RUN   TestGRPCStreamingPingViaActivator
+=== PAUSE TestGRPCStreamingPingViaActivator
+=== RUN   TestGRPCAutoscaleUpDownUp
+=== PAUSE TestGRPCAutoscaleUpDownUp
+=== RUN   TestGRPCLoadBalancing
+=== PAUSE TestGRPCLoadBalancing
+=== RUN   TestHelloWorld
+=== PAUSE TestHelloWorld
+=== RUN   TestQueueSideCarResourceLimit
+=== PAUSE TestQueueSideCarResourceLimit
+=== RUN   TestHelloHTTP2WithPortNameH2C
+=== PAUSE TestHelloHTTP2WithPortNameH2C
+=== RUN   TestHelloHTTP2WithEmptyPortName
+=== PAUSE TestHelloHTTP2WithEmptyPortName
+=== RUN   TestImagePullError
+=== PAUSE TestImagePullError
+=== RUN   TestInitScalePositive
+=== PAUSE TestInitScalePositive
+=== RUN   TestRequestLogs
+=== PAUSE TestRequestLogs
+=== RUN   TestMinScale
+=== PAUSE TestMinScale
+=== RUN   TestMultiContainer
+    multicontainer_test.go:37: 
+--- SKIP: TestMultiContainer (0.00s)
+=== RUN   TestMultipleNamespace
+=== PAUSE TestMultipleNamespace
+=== RUN   TestConflictingRouteService
+=== PAUSE TestConflictingRouteService
+=== RUN   TestPodScheduleError
+=== PAUSE TestPodScheduleError
+=== RUN   TestReadinessAlternatePort
+=== PAUSE TestReadinessAlternatePort
+=== RUN   TestResourceQuotaError
+=== PAUSE TestResourceQuotaError
+=== RUN   TestRollbackBYOName
+=== PAUSE TestRollbackBYOName
+=== RUN   TestGradualRollout
+=== PAUSE TestGradualRollout
+=== RUN   TestRoutesNotReady
+=== PAUSE TestRoutesNotReady
+=== RUN   TestRouteVisibilityChanges
+=== PAUSE TestRouteVisibilityChanges
+=== RUN   TestServiceToServiceCall
+=== PAUSE TestServiceToServiceCall
+=== RUN   TestSvcToSvcViaActivator
+=== PAUSE TestSvcToSvcViaActivator
+=== RUN   TestCallToPublicService
+=== PAUSE TestCallToPublicService
+=== RUN   TestServiceValidationWithInvalidPodSpec
+=== PAUSE TestServiceValidationWithInvalidPodSpec
+=== RUN   TestSubrouteLocalSTS
+=== PAUSE TestSubrouteLocalSTS
+=== RUN   TestSubrouteVisibilityPublicToPrivate
+=== PAUSE TestSubrouteVisibilityPublicToPrivate
+=== RUN   TestSubrouteVisibilityPrivateToPublic
+=== PAUSE TestSubrouteVisibilityPrivateToPublic
+=== RUN   TestRevisionTimeout
+=== PAUSE TestRevisionTimeout
+=== RUN   TestWebSocket
+=== PAUSE TestWebSocket
+=== RUN   TestWebSocketViaActivator
+=== PAUSE TestWebSocketViaActivator
+=== RUN   TestWebSocketBlueGreenRoute
+=== PAUSE TestWebSocketBlueGreenRoute
+=== RUN   TestWebSocketWithTimeout
+=== RUN   TestWebSocketWithTimeout/does_not_exceed_timeout_seconds
+    service.go:150: Creating a new Service service web-socket-with-timeout-does-not-exceed-t-ljlbweqs
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-with-timeout-does-not-exceed-t-ljlbweqs,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    websocket_test.go:344: Failed to create WebSocket server: namespaces "serving-tests" not found
+=== RUN   TestWebSocketWithTimeout/exceeds_timeout_seconds
+    service.go:150: Creating a new Service service web-socket-with-timeout-exceeds-timeout-s-knhicviy
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-with-timeout-exceeds-timeout-s-knhicviy,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    websocket_test.go:344: Failed to create WebSocket server: namespaces "serving-tests" not found
+=== RUN   TestWebSocketWithTimeout/does_not_exceed_response_start_timeout_seconds
+    service.go:150: Creating a new Service service web-socket-with-timeout-does-not-exceed-r-hpgwbfzm
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-with-timeout-does-not-exceed-r-hpgwbfzm,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    websocket_test.go:344: Failed to create WebSocket server: namespaces "serving-tests" not found
+=== RUN   TestWebSocketWithTimeout/exceeds_response_start_timeout_seconds
+    service.go:150: Creating a new Service service web-socket-with-timeout-exceeds-response--hkogtqoa
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-with-timeout-exceeds-response--hkogtqoa,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    websocket_test.go:344: Failed to create WebSocket server: namespaces "serving-tests" not found
+=== RUN   TestWebSocketWithTimeout/does_not_exceed_idle_timeout_seconds
+    service.go:150: Creating a new Service service web-socket-with-timeout-does-not-exceed-i-tczdcilq
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-with-timeout-does-not-exceed-i-tczdcilq,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    websocket_test.go:344: Failed to create WebSocket server: namespaces "serving-tests" not found
+=== RUN   TestWebSocketWithTimeout/exceeds_idle_timeout_seconds
+    service.go:150: Creating a new Service service web-socket-with-timeout-exceeds-idle-time-ewtsbvxz
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-with-timeout-exceeds-idle-time-ewtsbvxz,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    websocket_test.go:344: Failed to create WebSocket server: namespaces "serving-tests" not found
+--- FAIL: TestWebSocketWithTimeout (0.72s)
+    --- FAIL: TestWebSocketWithTimeout/does_not_exceed_timeout_seconds (0.06s)
+    --- FAIL: TestWebSocketWithTimeout/exceeds_timeout_seconds (0.13s)
+    --- FAIL: TestWebSocketWithTimeout/does_not_exceed_response_start_timeout_seconds (0.06s)
+    --- FAIL: TestWebSocketWithTimeout/exceeds_response_start_timeout_seconds (0.16s)
+    --- FAIL: TestWebSocketWithTimeout/does_not_exceed_idle_timeout_seconds (0.15s)
+    --- FAIL: TestWebSocketWithTimeout/exceeds_idle_timeout_seconds (0.16s)
+=== CONT  TestActivatorOverload
+=== CONT  TestRequestLogs
+=== NAME  TestActivatorOverload
+    activator_test.go:58: Creating a service with run latest configuration.
+    service.go:150: Creating a new Service service activator-overload-aibrgjbn
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:activator-overload-aibrgjbn,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/max-scale: 10,autoscaling.knative.dev/target-burst-capacity: -1,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRequestLogs
+    logging_test.go:64: Skipping verifying request logs because both request and probe logging is disabled
+--- SKIP: TestRequestLogs (0.05s)
+=== CONT  TestWebSocketBlueGreenRoute
+    websocket_test.go:185: Creating a new Service in runLatest
+    service.go:150: Creating a new Service service web-socket-blue-green-route-fgtuznzk
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-blue-green-route-fgtuznzk,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestActivatorOverload
+    activator_test.go:70: Unable to create resources: namespaces "serving-tests" not found
+--- FAIL: TestActivatorOverload (0.09s)
+=== CONT  TestWebSocketViaActivator
+    service.go:150: Creating a new Service service web-socket-via-activator-yjabhrpo
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-via-activator-yjabhrpo,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestWebSocketBlueGreenRoute
+    websocket_test.go:192: Failed to create initial Service: web-socket-blue-green-route-fgtuznzk: namespaces "serving-tests" not found
+=== NAME  TestWebSocketViaActivator
+    websocket_test.go:146: Failed to create WebSocket server: namespaces "serving-tests" not found
+--- FAIL: TestWebSocketBlueGreenRoute (0.18s)
+=== CONT  TestWebSocket
+    service.go:150: Creating a new Service service web-socket-kdrffyxp
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:web-socket-kdrffyxp,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+--- FAIL: TestWebSocketViaActivator (0.14s)
+=== CONT  TestRevisionTimeout
+=== RUN   TestRevisionTimeout/does_not_exceed_timeout_seconds
+=== PAUSE TestRevisionTimeout/does_not_exceed_timeout_seconds
+=== RUN   TestRevisionTimeout/exceeds_timeout_seconds
+=== PAUSE TestRevisionTimeout/exceeds_timeout_seconds
+=== RUN   TestRevisionTimeout/writes_response_before_response_start_timeout
+=== PAUSE TestRevisionTimeout/writes_response_before_response_start_timeout
+=== RUN   TestRevisionTimeout/exceeds_response_start_timeout
+=== PAUSE TestRevisionTimeout/exceeds_response_start_timeout
+=== RUN   TestRevisionTimeout/writes_response_before_idle_timeout
+=== PAUSE TestRevisionTimeout/writes_response_before_idle_timeout
+=== RUN   TestRevisionTimeout/exceeds_idle_timeout
+=== PAUSE TestRevisionTimeout/exceeds_idle_timeout
+=== CONT  TestSubrouteVisibilityPrivateToPublic
+    subroutes_test.go:211: Creating a Service for the helloworld test app.
+    service.go:150: Creating a new Service service subroute-visibility-private-to-public-eqpgpzwe
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:subroute-visibility-private-to-public-eqpgpzwe,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{my-tag   <nil> <*>50 <nil>} {my-tag2   <nil> <*>50 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestWebSocket
+    websocket_test.go:113: Failed to create WebSocket server: namespaces "serving-tests" not found
+--- FAIL: TestWebSocket (0.06s)
+=== CONT  TestSubrouteVisibilityPublicToPrivate
+    subroutes_test.go:96: Creating a Service for the helloworld test app.
+    service.go:150: Creating a new Service service subroute-visibility-public-to-private-kqkudtng
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:subroute-visibility-public-to-private-kqkudtng,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{my-tag   <nil> <*>100 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestSubrouteVisibilityPrivateToPublic
+    subroutes_test.go:235: Failed to create initial Service: subroute-visibility-private-to-public-eqpgpzwe: namespaces "serving-tests" not found
+--- FAIL: TestSubrouteVisibilityPrivateToPublic (0.06s)
+=== CONT  TestSubrouteLocalSTS
+    subroutes_test.go:54: Creating a Service for the helloworld test app.
+    service.go:150: Creating a new Service service subroute-local-s-t-s-fzfnnefv
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:subroute-local-s-t-s-fzfnnefv,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{current   <nil> <*>100 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestSubrouteVisibilityPublicToPrivate
+    subroutes_test.go:117: Failed to create initial Service: subroute-visibility-public-to-private-kqkudtng: namespaces "serving-tests" not found
+=== NAME  TestSubrouteLocalSTS
+    subroutes_test.go:74: Failed to create initial Service: subroute-local-s-t-s-fzfnnefv: namespaces "serving-tests" not found
+--- FAIL: TestSubrouteVisibilityPublicToPrivate (0.06s)
+=== CONT  TestServiceValidationWithInvalidPodSpec
+    service.go:150: Creating a new Service service service-validation-with-invalid-pod-spec-uslpfkpa
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:service-validation-with-invalid-pod-spec-uslpfkpa,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{features.knative.dev/podspec-dryrun: strict,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+--- FAIL: TestSubrouteLocalSTS (0.06s)
+=== CONT  TestCallToPublicService
+    service_to_service_test.go:314: Creating a Service for the helloworld test app.
+    service.go:150: Creating a new Service service call-to-public-service-wlbishbm
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:call-to-public-service-wlbishbm,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestServiceValidationWithInvalidPodSpec
+    service_validation_test.go:56: Create Service: namespaces "serving-tests" not found
+--- FAIL: TestServiceValidationWithInvalidPodSpec (0.06s)
+=== CONT  TestSvcToSvcViaActivator
+=== RUN   TestSvcToSvcViaActivator/both-disabled
+=== PAUSE TestSvcToSvcViaActivator/both-disabled
+=== RUN   TestSvcToSvcViaActivator/a-disabled
+=== PAUSE TestSvcToSvcViaActivator/a-disabled
+=== RUN   TestSvcToSvcViaActivator/b-disabled
+=== PAUSE TestSvcToSvcViaActivator/b-disabled
+=== RUN   TestSvcToSvcViaActivator/both-enabled
+=== PAUSE TestSvcToSvcViaActivator/both-enabled
+=== CONT  TestServiceToServiceCall
+    service_to_service_test.go:205: Creating a Service for the helloworld test app.
+    service.go:150: Creating a new Service service service-to-service-call-kcxqhrgv
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:service-to-service-call-kcxqhrgv,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestCallToPublicService
+    service_to_service_test.go:324: Failed to create initial Service: call-to-public-service-wlbishbm: namespaces "serving-tests" not found
+--- FAIL: TestCallToPublicService (0.06s)
+=== CONT  TestRouteVisibilityChanges
+=== RUN   TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_single_traffic
+=== PAUSE TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_single_traffic
+=== RUN   TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_tag_only
+=== PAUSE TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_tag_only
+=== RUN   TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_both_tagged_and_non-tagged_traffic
+=== PAUSE TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_both_tagged_and_non-tagged_traffic
+=== CONT  TestRoutesNotReady
+    route_service_test.go:57: Creating a new Service with an invalid traffic target.
+    service.go:150: Creating a new Service service routes-not-ready-lzjvmsxi
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:routes-not-ready-lzjvmsxi,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{ foobar  <nil> <*>100 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestServiceToServiceCall
+    service_to_service_test.go:217: Failed to create initial Service: service-to-service-call-kcxqhrgv: namespaces "serving-tests" not found
+--- FAIL: TestServiceToServiceCall (0.06s)
+=== CONT  TestGradualRollout
+    rollout_test.go:51: Creating a new Service gradual-rollout-jeittvqy
+    service.go:150: Creating a new Service service gradual-rollout-jeittvqy
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:gradual-rollout-jeittvqy,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{serving.knative.dev/rollout-duration: 1m0s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRoutesNotReady
+    route_service_test.go:60: Failed to create initial Service "routes-not-ready-lzjvmsxi": &errors.StatusError{ErrStatus:v1.Status{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ListMeta:v1.ListMeta{SelfLink:"", ResourceVersion:"", Continue:"", RemainingItemCount:(*int64)(nil)}, Status:"Failure", Message:"namespaces \"serving-tests\" not found", Reason:"NotFound", Details:(*v1.StatusDetails)(0xc0005186c0), Code:404}}
+--- FAIL: TestRoutesNotReady (0.06s)
+=== CONT  TestRollbackBYOName
+    rollback_byo_test.go:60: Creating a new Service with byo config name "rollback-b-y-o-name-grktmgma-byo-foo".
+    service.go:150: Creating a new Service service rollback-b-y-o-name-grktmgma
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:rollback-b-y-o-name-grktmgma,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:rollback-b-y-o-name-grktmgma-byo-foo,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{ rollback-b-y-o-name-grktmgma-byo-foo  <nil> <*>100 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestGradualRollout
+    rollout_test.go:55: Create Ready Service: namespaces "serving-tests" not found
+--- FAIL: TestGradualRollout (0.06s)
+=== CONT  TestResourceQuotaError
+    resource_quota_error_test.go:55: Creating a new Service helloworld
+    service.go:150: Creating a new Service service resource-quota-error-izsnvxtk
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:resource-quota-error-izsnvxtk,GenerateName:,Namespace:rq-test,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{serving.knative.dev/progress-deadline: 5s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRollbackBYOName
+    rollback_byo_test.go:67: Failed to create initial Service: rollback-b-y-o-name-grktmgma: namespaces "serving-tests" not found
+--- FAIL: TestRollbackBYOName (0.06s)
+=== CONT  TestReadinessAlternatePort
+    readinessport_test.go:47: Creating a new Service
+    service.go:150: Creating a new Service service readiness-alternate-port-kqkeoykx
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:readiness-alternate-port-kqkeoykx,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+    readinessport_test.go:65: Failed to create initial Service: readiness-alternate-port-kqkeoykx: namespaces "serving-tests" not found
+=== NAME  TestResourceQuotaError
+    resource_quota_error_test.go:75: Failed to create Service resource-quota-error-izsnvxtk: namespaces "rq-test" not found
+--- FAIL: TestResourceQuotaError (0.06s)
+=== CONT  TestPodScheduleError
+--- FAIL: TestReadinessAlternatePort (0.06s)
+=== CONT  TestConflictingRouteService
+=== NAME  TestPodScheduleError
+    pod_schedule_error_test.go:52: Creating a new Service helloworld
+    service.go:150: Creating a new Service service pod-schedule-error-iulzmrec
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:pod-schedule-error-iulzmrec,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestConflictingRouteService
+    service.go:150: Creating a new Service service conflicting-route-service-gmjfesqo
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:conflicting-route-service-gmjfesqo,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestPodScheduleError
+    pod_schedule_error_test.go:66: Failed to create Service pod-schedule-error-iulzmrec: namespaces "serving-tests" not found
+--- FAIL: TestPodScheduleError (0.06s)
+=== CONT  TestMultipleNamespace
+    service.go:150: Creating a new Service service multiple-namespace-xyylnkkh
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:multiple-namespace-xyylnkkh,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestConflictingRouteService
+    namespace_test.go:125: Failed to create Service conflicting-route-service-gmjfesqo in namespace serving-tests: namespaces "serving-tests" not found
+=== NAME  TestMultipleNamespace
+    namespace_test.go:69: Failed to create Service multiple-namespace-xyylnkkh in namespace serving-tests: namespaces "serving-tests" not found
+--- FAIL: TestMultipleNamespace (0.07s)
+=== CONT  TestMinScale
+    minscale_readiness_test.go:58: Creating route
+    crd.go:36:  resource {<*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:min-scale-rapoxtao,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {[{  min-scale-fedtdydj <nil> <*>100 <nil>}]} {{0 <nil> <nil>} {<nil> <nil> <nil>}}} <nil> <nil> <nil>}
+--- FAIL: TestConflictingRouteService (0.13s)
+=== CONT  TestGRPCUnaryPing
+    grpc_test.go:390: Creating service for grpc-ping
+    service.go:150: Creating a new Service service grpc-unary-ping-zaorlsky
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:grpc-unary-ping-zaorlsky,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestMinScale
+    minscale_readiness_test.go:60: Failed to create Route: namespaces "serving-tests" not found
+=== NAME  TestGRPCUnaryPing
+    grpc_test.go:390: Failed to create initial Service: grpc-unary-ping-zaorlsky: namespaces "serving-tests" not found
+--- FAIL: TestMinScale (0.06s)
+=== CONT  TestInitScalePositive
+    initial_scale_test.go:47: Creating a new Configuration with initialScale 3 and verifying that pods are created
+    e2e.go:157: Creating a new Configuration. configuration init-scale-positive-ceyckcrb
+    crd.go:36:  resource {<nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:init-scale-positive-ceyckcrb,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/initial-scale: 3,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {{0 <nil> <nil>} { }}} <nil> <nil>}
+--- FAIL: TestGRPCUnaryPing (0.06s)
+=== CONT  TestImagePullError
+    image_pull_error_test.go:44: Creating a new Configuration  image-pull-error-vvetskkd:ubuntu@sha256:0000000000000000000000000000000000000000000000000000000000000000
+    crd.go:36:  resource {<nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:image-pull-error-vvetskkd,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {{0 <nil> <nil>} { }}} <nil> <nil>}
+=== NAME  TestInitScalePositive
+    e2e.go:165: Failed creating initial configuration: namespaces "serving-tests" not found
+=== NAME  TestImagePullError
+    image_pull_error_test.go:47: Failed to create Config image-pull-error-vvetskkd: namespaces "serving-tests" not found
+--- FAIL: TestInitScalePositive (0.06s)
+=== CONT  TestHelloHTTP2WithEmptyPortName
+    http2_test.go:78: HTTP2 with empty port name is not implemented yet. See: https://github.com/knative/serving/issues/4283
+--- SKIP: TestHelloHTTP2WithEmptyPortName (0.00s)
+=== CONT  TestHelloHTTP2WithPortNameH2C
+    http2_test.go:50: Creating a new Service
+    service.go:150: Creating a new Service service hello-http2-with-port-name-h2c-vkpspigw
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:hello-http2-with-port-name-h2c-vkpspigw,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+--- FAIL: TestImagePullError (0.06s)
+=== CONT  TestQueueSideCarResourceLimit
+    helloworld_test.go:94: Creating a new Service
+    service.go:150: Creating a new Service service queue-side-car-resource-limit-iwfrpmwa
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:queue-side-car-resource-limit-iwfrpmwa,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{queue.sidecar.serving.knative.dev/resource-percentage: 0.2,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestHelloHTTP2WithPortNameH2C
+    http2_test.go:54: Failed to create initial Service: hello-http2-with-port-name-h2c-vkpspigw: namespaces "serving-tests" not found
+=== NAME  TestQueueSideCarResourceLimit
+    helloworld_test.go:109: Failed to create initial Service: queue-side-car-resource-limit-iwfrpmwa: namespaces "serving-tests" not found
+--- FAIL: TestQueueSideCarResourceLimit (0.06s)
+=== CONT  TestHelloWorld
+--- FAIL: TestHelloHTTP2WithPortNameH2C (0.06s)
+=== CONT  TestGRPCLoadBalancing
+    grpc_test.go:453: Creating service for grpc-ping
+=== NAME  TestHelloWorld
+    helloworld_test.go:52: Creating a new Service
+=== NAME  TestGRPCLoadBalancing
+    service.go:150: Creating a new Service service grpc-load-balancing-jzetcmyp
+=== NAME  TestHelloWorld
+    service.go:150: Creating a new Service service hello-world-rvhegdgv
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:hello-world-rvhegdgv,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestGRPCLoadBalancing
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:grpc-load-balancing-jzetcmyp,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/min-scale: 3,autoscaling.knative.dev/target: 1,autoscaling.knative.dev/target-burst-capacity: -1,autoscaling.knative.dev/target-utilization-percentage: 70,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestHelloWorld
+    helloworld_test.go:56: Failed to create initial Service: hello-world-rvhegdgv: namespaces "serving-tests" not found
+=== NAME  TestGRPCLoadBalancing
+    grpc_test.go:453: Failed to create initial Service: grpc-load-balancing-jzetcmyp: namespaces "serving-tests" not found
+--- FAIL: TestHelloWorld (0.06s)
+=== CONT  TestGRPCAutoscaleUpDownUp
+    grpc_test.go:430: Creating service for grpc-ping
+    service.go:150: Creating a new Service service grpc-autoscale-up-down-up-lmqzoura
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:grpc-autoscale-up-down-up-lmqzoura,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target: 1,autoscaling.knative.dev/target-burst-capacity: -1,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 10s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+--- FAIL: TestGRPCLoadBalancing (0.06s)
+=== CONT  TestGRPCStreamingPingViaActivator
+    grpc_test.go:412: Creating service for grpc-ping
+    service.go:150: Creating a new Service service grpc-streaming-pig-act-jmwnmaky
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:grpc-streaming-pig-act-jmwnmaky,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestGRPCAutoscaleUpDownUp
+    grpc_test.go:430: Failed to create initial Service: grpc-autoscale-up-down-up-lmqzoura: namespaces "serving-tests" not found
+--- FAIL: TestGRPCAutoscaleUpDownUp (0.06s)
+=== CONT  TestGRPCUnaryPingViaActivator
+    grpc_test.go:398: Creating service for grpc-ping
+    service.go:150: Creating a new Service service grpc-unary-ping-via-activator-jxzrttxs
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:grpc-unary-ping-via-activator-jxzrttxs,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestGRPCStreamingPingViaActivator
+    grpc_test.go:412: Failed to create initial Service: grpc-streaming-pig-act-jmwnmaky: namespaces "serving-tests" not found
+--- FAIL: TestGRPCStreamingPingViaActivator (0.06s)
+=== CONT  TestGRPCStreamingPing
+    grpc_test.go:394: Creating service for grpc-ping
+    service.go:150: Creating a new Service service grpc-streaming-ping-rxqslwwx
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:grpc-streaming-ping-rxqslwwx,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestGRPCUnaryPingViaActivator
+    grpc_test.go:398: Failed to create initial Service: grpc-unary-ping-via-activator-jxzrttxs: namespaces "serving-tests" not found
+--- FAIL: TestGRPCUnaryPingViaActivator (0.06s)
+=== CONT  TestTargetBurstCapacityZero
+    autoscale_test.go:273: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service target-burst-capacity-zero-wcqbhzuo
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:target-burst-capacity-zero-wcqbhzuo,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/target: 10,autoscaling.knative.dev/target-burst-capacity: 0,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 10s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestGRPCStreamingPing
+    grpc_test.go:394: Failed to create initial Service: grpc-streaming-ping-rxqslwwx: namespaces "serving-tests" not found
+--- FAIL: TestGRPCStreamingPing (0.06s)
+=== CONT  TestEmptyDir
+    empty_dir_test.go:46: Creating a new Service
+    service.go:150: Creating a new Service service empty-dir-mvlsuscs
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:empty-dir-mvlsuscs,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestTargetBurstCapacityZero
+    autoscale_test.go:273: Failed to create initial Service: target-burst-capacity-zero-wcqbhzuo: namespaces "serving-tests" not found
+--- FAIL: TestTargetBurstCapacityZero (0.06s)
+=== CONT  TestEgressTraffic
+    service.go:150: Creating a new Service service egress-traffic-itiwcpub
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:egress-traffic-itiwcpub,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestEmptyDir
+    empty_dir_test.go:57: Failed to create initial Service: empty-dir-mvlsuscs: namespaces "serving-tests" not found
+--- FAIL: TestEmptyDir (0.06s)
+=== CONT  TestDestroyPodInflight
+    destroypod_test.go:64: Creating a new Route and Configuration
+    crd.go:36:  resource {<nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:destroy-pod-inflight-mmflsfaa,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {{0 <nil> <nil>} { }}} <nil> <nil>}
+=== NAME  TestEgressTraffic
+    egress_traffic_test.go:56: Failed to create a service: namespaces "serving-tests" not found
+--- FAIL: TestEgressTraffic (0.06s)
+=== CONT  TestActivationScale
+    autoscale_test.go:358: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service activation-scale-hnmmjdbk
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:activation-scale-hnmmjdbk,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/activation-scale: 5,autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestDestroyPodInflight
+    destroypod_test.go:66: Failed to create Configuration: namespaces "serving-tests" not found
+--- FAIL: TestDestroyPodInflight (0.06s)
+=== CONT  TestFastScaleToZero
+    autoscale_test.go:311: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service fast-scale-to-zero-bbtwddis
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:fast-scale-to-zero-bbtwddis,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-burst-capacity: -1,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 6s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestActivationScale
+    autoscale_test.go:358: Failed to create initial Service: activation-scale-hnmmjdbk: namespaces "serving-tests" not found
+--- FAIL: TestActivationScale (0.06s)
+=== CONT  TestRPSBasedAutoscaleUpCountPods
+    autoscale_test.go:94: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service r-p-s-based-autoscale-up-count-pods-tmavhwvi
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:r-p-s-based-autoscale-up-count-pods-tmavhwvi,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: rps,autoscaling.knative.dev/target: 10,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestFastScaleToZero
+    autoscale_test.go:311: Failed to create initial Service: fast-scale-to-zero-bbtwddis: namespaces "serving-tests" not found
+--- FAIL: TestFastScaleToZero (0.06s)
+=== CONT  TestTargetBurstCapacityMinusOne
+    autoscale_test.go:239: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service target-burst-capacity-minus-one-kfyulsxe
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:target-burst-capacity-minus-one-kfyulsxe,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/target: 10,autoscaling.knative.dev/target-burst-capacity: -1,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRPSBasedAutoscaleUpCountPods
+    autoscale_test.go:94: Failed to create initial Service: r-p-s-based-autoscale-up-count-pods-tmavhwvi: namespaces "serving-tests" not found
+--- FAIL: TestRPSBasedAutoscaleUpCountPods (0.06s)
+=== CONT  TestTargetBurstCapacity
+    autoscale_test.go:157: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service target-burst-capacity-gehibhvp
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:target-burst-capacity-gehibhvp,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/panic-threshold-percentage: 200,autoscaling.knative.dev/target: 10,autoscaling.knative.dev/target-burst-capacity: 7,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestTargetBurstCapacityMinusOne
+    autoscale_test.go:239: Failed to create initial Service: target-burst-capacity-minus-one-kfyulsxe: namespaces "serving-tests" not found
+--- FAIL: TestTargetBurstCapacityMinusOne (0.05s)
+=== CONT  TestAutoscaleUpCountPods
+    autoscale_test.go:94: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service autoscale-up-count-pods-vzwaejeb
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:autoscale-up-count-pods-vzwaejeb,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestTargetBurstCapacity
+    autoscale_test.go:157: Failed to create initial Service: target-burst-capacity-gehibhvp: namespaces "serving-tests" not found
+--- FAIL: TestTargetBurstCapacity (0.06s)
+=== CONT  TestAutoscaleUpDownUp
+=== RUN   TestAutoscaleUpDownUp/aggregation-linear
+=== PAUSE TestAutoscaleUpDownUp/aggregation-linear
+=== RUN   TestAutoscaleUpDownUp/aggregation-weighted-exponential
+=== PAUSE TestAutoscaleUpDownUp/aggregation-weighted-exponential
+=== CONT  TestRevisionTimeout/does_not_exceed_timeout_seconds
+    timeout_test.go:137: Creating a new Service 
+    service.go:150: Creating a new Service service revision-timeout-does-not-exceed-timeout--spkupugl
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:revision-timeout-does-not-exceed-timeout--spkupugl,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestAutoscaleUpCountPods
+    autoscale_test.go:94: Failed to create initial Service: autoscale-up-count-pods-vzwaejeb: namespaces "serving-tests" not found
+--- FAIL: TestAutoscaleUpCountPods (0.06s)
+=== CONT  TestRevisionTimeout/exceeds_response_start_timeout
+    timeout_test.go:137: Creating a new Service 
+    service.go:150: Creating a new Service service revision-timeout-exceeds-response-start-t-ysmxsthj
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:revision-timeout-exceeds-response-start-t-ysmxsthj,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRevisionTimeout/does_not_exceed_timeout_seconds
+    timeout_test.go:143: Failed to create Service: namespaces "serving-tests" not found
+=== CONT  TestRevisionTimeout/exceeds_idle_timeout
+    timeout_test.go:137: Creating a new Service 
+    service.go:150: Creating a new Service service revision-timeout-exceeds-idle-timeout-bmenijxn
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:revision-timeout-exceeds-idle-timeout-bmenijxn,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRevisionTimeout/exceeds_response_start_timeout
+    timeout_test.go:143: Failed to create Service: namespaces "serving-tests" not found
+=== CONT  TestRevisionTimeout/writes_response_before_idle_timeout
+    timeout_test.go:137: Creating a new Service 
+    service.go:150: Creating a new Service service revision-timeout-writes-response-before-i-kfecqynf
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:revision-timeout-writes-response-before-i-kfecqynf,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRevisionTimeout/exceeds_idle_timeout
+    timeout_test.go:143: Failed to create Service: namespaces "serving-tests" not found
+=== CONT  TestRevisionTimeout/writes_response_before_response_start_timeout
+    timeout_test.go:137: Creating a new Service 
+    service.go:150: Creating a new Service service revision-timeout-writes-response-before-r-ndpwuowu
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:revision-timeout-writes-response-before-r-ndpwuowu,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRevisionTimeout/writes_response_before_idle_timeout
+    timeout_test.go:143: Failed to create Service: namespaces "serving-tests" not found
+=== CONT  TestRevisionTimeout/exceeds_timeout_seconds
+    timeout_test.go:137: Creating a new Service 
+    service.go:150: Creating a new Service service revision-timeout-exceeds-timeout-seconds-yglrxzgq
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:revision-timeout-exceeds-timeout-seconds-yglrxzgq,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRevisionTimeout/writes_response_before_response_start_timeout
+    timeout_test.go:143: Failed to create Service: namespaces "serving-tests" not found
+=== CONT  TestSvcToSvcViaActivator/both-disabled
+    service_to_service_test.go:252: Creating helloworld Service
+    service.go:150: Creating a new Service service svc-to-svc-via-activator-both-disabled-otbrkxsy
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:svc-to-svc-via-activator-both-disabled-otbrkxsy,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,sidecar.istio.io/inject: false,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRevisionTimeout/exceeds_timeout_seconds
+    timeout_test.go:143: Failed to create Service: namespaces "serving-tests" not found
+--- FAIL: TestRevisionTimeout (0.00s)
+    --- FAIL: TestRevisionTimeout/does_not_exceed_timeout_seconds (0.06s)
+    --- FAIL: TestRevisionTimeout/exceeds_response_start_timeout (0.06s)
+    --- FAIL: TestRevisionTimeout/exceeds_idle_timeout (0.06s)
+    --- FAIL: TestRevisionTimeout/writes_response_before_idle_timeout (0.06s)
+    --- FAIL: TestRevisionTimeout/writes_response_before_response_start_timeout (0.06s)
+    --- FAIL: TestRevisionTimeout/exceeds_timeout_seconds (0.06s)
+=== CONT  TestSvcToSvcViaActivator/both-enabled
+    service_to_service_test.go:252: Creating helloworld Service
+    service.go:150: Creating a new Service service svc-to-svc-via-activator-both-enabled-uilruzfm
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:svc-to-svc-via-activator-both-enabled-uilruzfm,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,sidecar.istio.io/inject: true,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestSvcToSvcViaActivator/both-disabled
+    service_to_service_test.go:270: Failed to create a service: namespaces "serving-tests" not found
+=== CONT  TestSvcToSvcViaActivator/b-disabled
+    service_to_service_test.go:252: Creating helloworld Service
+    service.go:150: Creating a new Service service svc-to-svc-via-activator-b-disabled-vzthptae
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:svc-to-svc-via-activator-b-disabled-vzthptae,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,sidecar.istio.io/inject: false,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestSvcToSvcViaActivator/both-enabled
+    service_to_service_test.go:270: Failed to create a service: namespaces "serving-tests" not found
+=== CONT  TestSvcToSvcViaActivator/a-disabled
+    service_to_service_test.go:252: Creating helloworld Service
+    service.go:150: Creating a new Service service svc-to-svc-via-activator-a-disabled-pnwieodl
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:svc-to-svc-via-activator-a-disabled-pnwieodl,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{networking.knative.dev/visibility: cluster-local,},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/target-burst-capacity: -1,sidecar.istio.io/inject: true,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestSvcToSvcViaActivator/b-disabled
+    service_to_service_test.go:270: Failed to create a service: namespaces "serving-tests" not found
+=== CONT  TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_single_traffic
+    route_service_test.go:136: Creating a new Service
+    service.go:150: Creating a new Service service route-visibility-changes-cegsjwlm
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:route-visibility-changes-cegsjwlm,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{   <nil> <*>100 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestSvcToSvcViaActivator/a-disabled
+    service_to_service_test.go:270: Failed to create a service: namespaces "serving-tests" not found
+--- FAIL: TestSvcToSvcViaActivator (0.00s)
+    --- FAIL: TestSvcToSvcViaActivator/both-disabled (0.07s)
+    --- FAIL: TestSvcToSvcViaActivator/both-enabled (0.06s)
+    --- FAIL: TestSvcToSvcViaActivator/b-disabled (0.06s)
+    --- FAIL: TestSvcToSvcViaActivator/a-disabled (0.06s)
+=== CONT  TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_both_tagged_and_non-tagged_traffic
+    route_service_test.go:136: Creating a new Service
+    service.go:150: Creating a new Service service route-visibility-changes-gibzsohb
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:route-visibility-changes-gibzsohb,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{   <nil> <*>60 <nil>} {cow   <nil> <*>40 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_single_traffic
+    route_service_test.go:139: Failed to create initial Service "route-visibility-changes-cegsjwlm": &errors.StatusError{ErrStatus:v1.Status{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ListMeta:v1.ListMeta{SelfLink:"", ResourceVersion:"", Continue:"", RemainingItemCount:(*int64)(nil)}, Status:"Failure", Message:"namespaces \"serving-tests\" not found", Reason:"NotFound", Details:(*v1.StatusDetails)(0xc000518720), Code:404}}
+=== CONT  TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_tag_only
+    route_service_test.go:136: Creating a new Service
+    service.go:150: Creating a new Service service route-visibility-changes-bllplngf
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:route-visibility-changes-bllplngf,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {[{cow   <nil> <*>100 <nil>}]}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_both_tagged_and_non-tagged_traffic
+    route_service_test.go:139: Failed to create initial Service "route-visibility-changes-gibzsohb": &errors.StatusError{ErrStatus:v1.Status{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ListMeta:v1.ListMeta{SelfLink:"", ResourceVersion:"", Continue:"", RemainingItemCount:(*int64)(nil)}, Status:"Failure", Message:"namespaces \"serving-tests\" not found", Reason:"NotFound", Details:(*v1.StatusDetails)(0xc000518d80), Code:404}}
+=== CONT  TestAutoscaleUpDownUp/aggregation-linear
+    autoscale_test.go:56: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service autoscale-up-down-up-aggregation-linear-xdbddysc
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:autoscale-up-down-up-aggregation-linear-xdbddysc,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/metric-aggregation-algorithm: linear,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_tag_only
+    route_service_test.go:139: Failed to create initial Service "route-visibility-changes-bllplngf": &errors.StatusError{ErrStatus:v1.Status{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ListMeta:v1.ListMeta{SelfLink:"", ResourceVersion:"", Continue:"", RemainingItemCount:(*int64)(nil)}, Status:"Failure", Message:"namespaces \"serving-tests\" not found", Reason:"NotFound", Details:(*v1.StatusDetails)(0xc000519380), Code:404}}
+=== CONT  TestAutoscaleUpDownUp/aggregation-weighted-exponential
+    autoscale_test.go:56: Creating a new Route and Configuration
+    service.go:150: Creating a new Service service autoscale-up-down-up-aggregation-weighted-moaxiidd
+    crd.go:36:  resource {<nil> <nil> <*>{&TypeMeta{Kind:,APIVersion:,} &ObjectMeta{Name:autoscale-up-down-up-aggregation-weighted-moaxiidd,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},} {{&ObjectMeta{Name:,GenerateName:,Namespace:,SelfLink:,UID:,ResourceVersion:,Generation:0,CreationTimestamp:0001-01-01 00:00:00 +0000 UTC,DeletionTimestamp:<nil>,DeletionGracePeriodSeconds:nil,Labels:map[string]string{},Annotations:map[string]string{autoscaling.knative.dev/class: kpa.autoscaling.knative.dev,autoscaling.knative.dev/metric: concurrency,autoscaling.knative.dev/metric-aggregation-algorithm: weighted-exponential,autoscaling.knative.dev/target: 6,autoscaling.knative.dev/target-utilization-percentage: 70,autoscaling.knative.dev/window: 30s,},OwnerReferences:[]OwnerReference{},Finalizers:[],ManagedFields:[]ManagedFieldsEntry{},}} {<nil>}} {{0 <nil> <nil>} { } {<nil> <nil> <nil>}}} <nil>}
+=== NAME  TestAutoscaleUpDownUp/aggregation-linear
+    autoscale_test.go:56: Failed to create initial Service: autoscale-up-down-up-aggregation-linear-xdbddysc: namespaces "serving-tests" not found
+--- FAIL: TestRouteVisibilityChanges (0.02s)
+    --- FAIL: TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_single_traffic (0.06s)
+    --- FAIL: TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_both_tagged_and_non-tagged_traffic (0.05s)
+    --- FAIL: TestRouteVisibilityChanges/Route_visibility_changes_from_public_to_private_with_tag_only (0.06s)
+=== NAME  TestAutoscaleUpDownUp/aggregation-weighted-exponential
+    autoscale_test.go:56: Failed to create initial Service: autoscale-up-down-up-aggregation-weighted-moaxiidd: namespaces "serving-tests" not found
+--- FAIL: TestAutoscaleUpDownUp (0.00s)
+    --- FAIL: TestAutoscaleUpDownUp/aggregation-linear (0.06s)
+    --- FAIL: TestAutoscaleUpDownUp/aggregation-weighted-exponential (0.06s)
+FAIL
+FAIL	knative.dev/serving/test/e2e	3.745s
+FAIL

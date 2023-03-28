@@ -7,7 +7,7 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/go:1": {}
-    },
+    }
 
-    "postCreateCommand": "bash .devcontainer/create-clusters-and-install-serving.sh > /tmp/post-create.log"
+    // "postCreateCommand": "bash .devcontainer/create-clusters-and-install-serving.sh > /tmp/post-create.log"
 }

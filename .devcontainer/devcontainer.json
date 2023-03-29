@@ -8,8 +8,8 @@
         "ghcr.io/devcontainers/features/go:1": {}
     },
 
-    "postStartCommand": "service docker start",
     "privileged": true,
+    "postStartCommand": "service docker start",
     "mounts": [
         {
             "source": "dind-var-lib-docker",

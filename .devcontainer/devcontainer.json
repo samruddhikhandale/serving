@@ -5,19 +5,16 @@
 
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/go:1": {}
     },
 
-    // Creates a local container registry, a Kind cluster and deploys Knative Serving and Knative Ingress.
-    "postCreateCommand": "bash .devcontainer/setup.sh",
-
-    "containerEnv": {
-        "KO_DOCKER_REPO": "kind.local",
-        "KO_FLAGS": "--platform=linux/amd64"
-    },
-
-    "forwardPorts": [
-        5001
+    "postStartCommand": "service docker start",
+    "privileged": true,
+    "mounts": [
+        {
+            "source": "dind-var-lib-docker",
+            "target": "/docker-graph",
+            "type": "volume"
+        }
     ]
 }

@@ -2,10 +2,12 @@
 set -eux
 
 export KO_DOCKER_REPO=kind.local
+export KO_FLAGS='--platform=linux/amd64'
 
 echo "Setting up local container registry..."
 REGISTRY_NAME='registry.local'
 REGISTRY_PORT='5001'
+
 if [ "$(docker inspect -f '{{.State.Running}}' "${REGISTRY_NAME}" 2>/dev/null || true)" != 'true' ]; then
   docker run \
     -d --restart=always -p "127.0.0.1:${REGISTRY_PORT}:5000" --name "${REGISTRY_NAME}" \

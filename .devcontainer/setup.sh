@@ -1,11 +1,11 @@
 #!/bin/sh
 set -eux
 
+.devcontainer/docker-start.sh
+
 echo "Setting up local container registry..."
 REGISTRY_NAME='registry.local'
 REGISTRY_PORT='5001'
-
-service docker start
 
 if [ "$(docker inspect -f '{{.State.Running}}' "${REGISTRY_NAME}" 2>/dev/null || true)" != 'true' ]; then
   docker run \

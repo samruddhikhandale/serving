@@ -3,6 +3,11 @@ set -eux
 
 .devcontainer/docker-start.sh
 
+until [ ! docker info > /dev/null 2>&1 ]; do
+  echo "Waiting for docker to start..."
+  sleep 0.1
+done
+
 echo "Setting up local container registry..."
 REGISTRY_NAME='registry.local'
 REGISTRY_PORT='5001'

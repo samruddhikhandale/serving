@@ -10,9 +10,9 @@
 
     "privileged": true,
     "postCreateCommand": [
-        "echo 'Creating a local container registry, a Kind cluster, and deploys Knative Serving and Knative Ingress'",
-        "echo '🔍 To explore the setup logs, use the \"Codespaces: View Creation Log\" command in the Palette (Cmd/Ctrl + Shift + P or F1)'",
-        "bash .devcontainer/setup.sh"
+        // "echo 'Creating a local container registry, a Kind cluster, and deploys Knative Serving and Knative Ingress'",
+        // "echo '🔍 To explore the setup logs, use the \"Codespaces: View Creation Log\" command in the Palette (Cmd/Ctrl + Shift + P or F1)'",
+        ".devcontainer/setup.sh"
     ],
     "postStartCommand": "service docker start",
 

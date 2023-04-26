@@ -2,6 +2,8 @@
 {
     "name": "Knative Serving",
     "image": "gcr.io/knative-tests/test-infra/prow-tests:latest",
+    "workspaceFolder": "/",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/,type=bind,consistency=cached",
     "privileged": true,
     "onCreateCommand": "echo 'source ${HOME}/.gvm/scripts/gvm' >> ~/.bashrc",
 

@@ -23,6 +23,8 @@ until docker info > /dev/null 2>&1 ; do
   sleep 0.1
 done
 
+cd /
+
 echo "Setting up local container registry..."
 REGISTRY_NAME='registry.local'
 REGISTRY_PORT='5001'
@@ -96,21 +98,21 @@ metadata:
 EOF
 
 echo "Deploying cert-manager..."
-kubectl apply -f ./third_party/cert-manager-latest/cert-manager.yaml
+kubectl apply -f $CODESPACE_VSCODE_FOLDER/third_party/cert-manager-latest/cert-manager.yaml
 kubectl wait --for=condition=Established --all crd
 kubectl wait --for=condition=Available -n cert-manager --all deployments
 
 echo "Deploying Knative Serving..."
-ko apply --selector knative.dev/crd-install=true -Rf config/core/
+ko apply --selector knative.dev/crd-install=true -Rf $CODESPACE_VSCODE_FOLDER/config/core/
 kubectl wait --for=condition=Established --all crd
-ko apply -Rf config/core/
+ko apply -Rf $CODESPACE_VSCODE_FOLDER/config/core/
 
 echo "Setting up sslip.io domain name"
-ko delete -f config/post-install/default-domain.yaml --ignore-not-found
-ko apply -f config/post-install/default-domain.yaml
+ko delete -f $CODESPACE_VSCODE_FOLDER/config/post-install/default-domain.yaml --ignore-not-found
+ko apply -f $CODESPACE_VSCODE_FOLDER/config/post-install/default-domain.yaml
 
 echo "Deploying Knative ingress with Kourier..."
-kubectl apply -f ./third_party/kourier-latest/kourier.yaml
+kubectl apply -f $CODESPACE_VSCODE_FOLDER/third_party/kourier-latest/kourier.yaml
 kubectl patch configmap/config-network \
   -n knative-serving \
   --type merge \
